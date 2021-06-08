@@ -103,7 +103,6 @@ namespace FadedTool
 					}
 
 					Console.WriteLine("");
-					//Console.WriteLine(string.Concat("Select A Writing Method:", "\n[1] Automatic", "\n[2] Manual", "\n[3] Custom", "\n[4] List Weather DIDs"));
 					Console.WriteLine(string.Concat("Select A Writing Method:", "\n[1] Automatic", "\n[2] Manual", "\n[3] Custom"));
 					Console.WriteLine("");
 					chosenWritingMethod = Console.ReadLine();
