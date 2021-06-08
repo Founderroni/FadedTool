@@ -17,7 +17,7 @@ namespace FadedTool
 		{
 		}
 
-        static float toolVers = 1.1f;
+        static float toolVers = 1.2f;
         private static void Main(string[] args)
         {
 			Console.Title = "FadedTool V."+toolVers+" by Founder  -  Kow#1833";
@@ -25,7 +25,7 @@ namespace FadedTool
 			Mem m = new Mem();
 
 			//Variables
-			string supportsVersionsList = "1.16.40 | 1.16.100 | 1.16.201 | 1.16.210 | 1.16.221";
+			string supportsVersionsList = "1.16.40 | 1.16.100 | 1.16.201 | 1.16.210 | 1.16.221 | 1.17.0";
 			string freeSpace = " ";//Because yes
 
 			string gameVersionSelected;
@@ -70,7 +70,7 @@ namespace FadedTool
 					Thread.Sleep(1000);
 					Console.Clear();
 
-					Console.WriteLine(string.Concat("Select Game version:", "\n[1] 1.16.40", "\n[2] 1.16.100", "\n[3] 1.16.201", "\n[4] 1.16.210", "\n[5] 1.16.221"));
+					Console.WriteLine(string.Concat("Select Game version:", "\n[1] 1.16.40", "\n[2] 1.16.100", "\n[3] 1.16.201", "\n[4] 1.16.210", "\n[5] 1.16.221", "\n[6] 1.17.0"));
 					gameVersionSelected = Console.ReadLine();
 					Console.WriteLine($"Chosen Version: {gameVersionSelected}");
 					if (gameVersionSelected == "1" || gameVersionSelected == "1.16.40")
@@ -92,6 +92,10 @@ namespace FadedTool
 					else if (gameVersionSelected == "5" || gameVersionSelected == "1.16.221")
                     {
 						gameVersionAddress = "03CCB7A8,10,4D0,8,260,20,2E0,0";//1.16.221
+					}
+					else if (gameVersionSelected == "6" || gameVersionSelected == "1.17.0")
+					{
+						gameVersionAddress = "03FE4618,0,4D0,280,30,40,2E0,0";//1.17.0
 					}
 					else
 					{
