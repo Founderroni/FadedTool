@@ -17,12 +17,13 @@ namespace FadedTool
 		{
 		}
 
-        static float toolVers = 1.2f;
+        static float toolVers = 1.3f;
         private static void Main(string[] args)
         {
 			Console.Title = "FadedTool V."+toolVers+" by Founder  -  Kow#1833";
 			Console.ForegroundColor = ConsoleColor.DarkMagenta;
 			Mem m = new Mem();
+			var funcs = new Functions();
 
 			//Variables
 			string supportsVersionsList = "1.16.40 | 1.16.100 | 1.16.201 | 1.16.210 | 1.16.221 | 1.17.0";
@@ -97,6 +98,12 @@ namespace FadedTool
 					{
 						gameVersionAddress = "03FE4618,0,4D0,280,30,40,2E0,0";//1.17.0
 					}
+					else if (gameVersionSelected == "m" || gameVersionSelected == "manual")
+					{
+						gameVersionAddress = "03FE4618,0,4D0,280,30,40,2E0,0";//1.17.0
+						ChangeDidRandom();
+						Console.ReadKey();
+					}
 					else
 					{
 						Console.WriteLine("Please choose an option listed");
@@ -130,12 +137,7 @@ namespace FadedTool
 					}
 					else if (chosenWritingMethod == "close" || chosenWritingMethod == "exit")
 					{
-						Console.Clear();
-						Console.WriteLine("Bye bye");
-						Thread.Sleep(300);
-						Console.WriteLine("Exiting Application...");
-						Thread.Sleep(1000);
-						Environment.Exit(0);
+						ExitApp();
 					}
 					else
 					{
@@ -156,19 +158,13 @@ namespace FadedTool
 					}
                     while (isAutoV2)
                     {
-						Guid newGuid = Guid.NewGuid();
-						string myNewUuid = newGuid.ToString();
-						m.WriteMemory("base+" + gameVersionAddress, "string", myNewUuid, "", null, true);
-						Console.WriteLine(string.Concat("New DeviceID: ", myNewUuid));
+						ChangeDidRandom();
 						Thread.Sleep(writtenSpeedToInt);
 					}
 
 					while (isManual == true)
 					{
-						Guid newGuid = Guid.NewGuid();
-						string myNewUuid = newGuid.ToString();
-						m.WriteMemory("base+" + gameVersionAddress, "string", myNewUuid, "", null, true);
-						Console.WriteLine(string.Concat("New DeviceID: ", myNewUuid));
+						ChangeDidRandom();
 						Console.WriteLine($"Press any key for a new DID");
 						Console.ReadKey();
 					}
@@ -177,22 +173,15 @@ namespace FadedTool
 					{
 						Console.WriteLine(string.Concat("\nType in the UUID you want to use: "));
 						wantedUuid = Console.ReadLine();
-						m.WriteMemory("base+" + gameVersionAddress, "string", wantedUuid, "", null, true);
-						Console.Write("DID set to: " + wantedUuid);
+						ChangeDidCustom(wantedUuid);
 						Console.Write("");
 						if (wantedUuid != "close")
 							Thread.Sleep(900);
 						if (wantedUuid == "close" || wantedUuid == "exit")
 						{
-							Console.Clear();
-							Console.WriteLine("Bye bye");
-							Thread.Sleep(300);
-							Console.WriteLine("Exiting Application...");
-							Thread.Sleep(1000);
-							Environment.Exit(0);
+							ExitApp();
 						}
 					}
-
 
 				}
 				catch
@@ -201,6 +190,76 @@ namespace FadedTool
 					Console.ReadKey();
 				}
 			}
+
+
+			 void ChangeDidRandom()
+			{
+
+				try//This is for auto reinject ¯\_(ツ)_/¯
+				{
+					Program.proc = Process.GetProcessesByName("Minecraft.Windows")[0];
+				}
+				catch
+				{
+					Console.WriteLine("Game wasn't found running");
+				}
+				if (!m.OpenProcess(Program.proc.Id))
+				{
+					int id = Program.proc.Id;
+					Console.WriteLine(string.Concat("Failed to attach to process ", id.ToString("X"), ". \nPossible reasons:\nYou aren't running as administrator\nMinecraft is in out of focused mode"), "Cant attach");
+				}
+
+				Guid newGuid = Guid.NewGuid();
+				string myNewUuid = newGuid.ToString();
+				m.WriteMemory("base+" + gameVersionAddress, "string", myNewUuid, "", null, true);
+				Console.WriteLine(string.Concat("New DeviceID: ", myNewUuid));
+			}
+
+			 void ChangeDidCustom(string did)
+			{
+
+				try
+				{
+					Program.proc = Process.GetProcessesByName("Minecraft.Windows")[0];
+				}
+				catch
+				{
+					Console.WriteLine("Game wasn't found running");
+				}
+				if (!m.OpenProcess(Program.proc.Id))
+				{
+					int id = Program.proc.Id;
+					Console.WriteLine(string.Concat("Failed to attach to process ", id.ToString("X"), ". \nPossible reasons:\nYou aren't running as administrator\nMinecraft is in out of focused mode"), "Cant attach");
+				}
+
+				m.OpenProcess(Program.proc.Id);
+				m.WriteMemory("base+" + gameVersionAddress, "string", did, "", null, true);
+				Console.Write("DID set to: " + did);
+			}
+
+			void ExitApp()
+            {
+				Console.Clear();
+				Console.WriteLine("Bye bye");
+				Thread.Sleep(300);
+				Console.WriteLine("Exiting Application...");
+				Thread.Sleep(1000);
+				m.CloseProcess();
+				Environment.Exit(0);
+			}
+
+
 		}
     }
+
+	class Functions
+    {
+		Mem mem = new Mem();
+		private readonly Random random = new Random();
+		public int Rand(int min, int max)
+		{
+			return random.Next(min, max);
+		}
+
+	}
 }
