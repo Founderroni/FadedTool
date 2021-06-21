@@ -64,8 +64,13 @@ namespace FadedTool
 				try
 				{
 
-
-					Console.WriteLine("Welcome To FadedTool V." + toolVers.ToString()+" Created by Founder");
+					Console.WriteLine("___________           .___         .______________           .__   ");
+					Console.WriteLine("\_   _____/____     __| _/____   __| _/\__    ___/___   ____ |  |  ");
+					Console.WriteLine(" |    __) \__  \   / __ |/ __ \ / __ |   |    | /  _ \ /  _ \|  |  ");
+					Console.WriteLine(" |     \   / __ \_/ /_/ \  ___// /_/ |   |    |(  <_> |  <_> )  |__");
+					Console.WriteLine(" \___  /  (____  /\____ |\___  >____ |   |____| \____/ \____/|____/");
+					Console.WriteLine("     \/        \/      \/    \/     \/                             ");
+					Console.WriteLine("Welcome to FadedTool v." + toolVers.ToString()+" Created by Founder");
 					Console.WriteLine("Supported Minecraft Version: "+ supportsVersionsList);
 					
 					Thread.Sleep(1000);
@@ -131,7 +136,12 @@ namespace FadedTool
 					}
 					else if (chosenWritingMethod == "DeezNutz" || chosenWritingMethod == "Weather")
 					{
-						Console.WriteLine("Deez Nutz in ur mouth");
+						Console.WriteLine("Deez nuts");
+						Console.WriteLine("⠀⠀⠀⠀⠀⠀⠀⢀⡔⠋⢉⠩⡉⠛⠛⠛⠉⣉⣉⠒⠒⡦⣄⠀⠀⠀");
+						Console.WriteLine("⠀⠀⠀⠀⠀⡰⠟⣀⢀⣒⠐⠛⡛⠳⢭⠆⠀⠤⡶⠿⠛⠂⠀⢈⠳⡀");
+						Console.WriteLine("⠀⠀⠀⠀⠈⢫⡊⠀⠹⡦⢼⣍⠓⢲⠥⢍⣁⣒⣊⣀⡬⢴⢿⠈⡜ ");
+						Console.WriteLine("⠀⠀⠀⠀⠀⠀⠀⠘⠦⡠⢀⠍⡒⠧⢄⣀⣁⣀⣏⣽⣹⠽⠊⠀⡇ ");
+						Console.WriteLine("⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠈⠑⠲⠤⠤⣀⣀⣀⣀⣀⠔⠁     ");
 						Thread.Sleep(2000);
 						Console.Clear();
 					}
@@ -194,8 +204,8 @@ namespace FadedTool
 
 			 void ChangeDidRandom()
 			{
-
-				try//This is for auto reinject ¯\_(ツ)_/¯
+				//This is for auto reinject ¯\_(ツ)_/¯
+				try
 				{
 					Program.proc = Process.GetProcessesByName("Minecraft.Windows")[0];
 				}
@@ -206,7 +216,7 @@ namespace FadedTool
 				if (!m.OpenProcess(Program.proc.Id))
 				{
 					int id = Program.proc.Id;
-					Console.WriteLine(string.Concat("Failed to attach to process ", id.ToString("X"), ". \nPossible reasons:\nYou aren't running as administrator\nMinecraft is in out of focused mode"), "Cant attach");
+					Console.WriteLine(string.Concat("Failed to attach to process ", id.ToString("X"), ". \nPossible reasons:\nYou aren't running as administrator\nMinecraft is in out of focused mode"), "Can't attach");
 				}
 
 				Guid newGuid = Guid.NewGuid();
@@ -229,7 +239,7 @@ namespace FadedTool
 				if (!m.OpenProcess(Program.proc.Id))
 				{
 					int id = Program.proc.Id;
-					Console.WriteLine(string.Concat("Failed to attach to process ", id.ToString("X"), ". \nPossible reasons:\nYou aren't running as administrator\nMinecraft is in out of focused mode"), "Cant attach");
+					Console.WriteLine(string.Concat("Failed to attach to process ", id.ToString("X"), ". \nPossible reasons:\nYou aren't running as administrator\nMinecraft is in out of focused mode"), "Can't attach");
 				}
 
 				m.OpenProcess(Program.proc.Id);
@@ -240,9 +250,9 @@ namespace FadedTool
 			void ExitApp()
             {
 				Console.Clear();
-				Console.WriteLine("Bye bye");
+				Console.WriteLine("Bye!");
 				Thread.Sleep(300);
-				Console.WriteLine("Exiting Application...");
+				Console.WriteLine("Exiting...");
 				Thread.Sleep(1000);
 				m.CloseProcess();
 				Environment.Exit(0);
