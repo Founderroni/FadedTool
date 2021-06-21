@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using Memory;
 using System.Diagnostics;
 using System.Threading;
+using Figgle;
 
 namespace FadedTool
 {
@@ -50,6 +51,8 @@ namespace FadedTool
 			}
 			catch
 			{
+				Console.WriteLine(
+				FiggleFonts.Rectangles.Render("ERROR"));
 				Console.WriteLine("Game wasn't found running");
 				Console.ReadKey();
 				Process.GetCurrentProcess().Kill();
@@ -63,6 +66,8 @@ namespace FadedTool
 			{
 				try
 				{
+					Console.WriteLine(
+					FiggleFonts.Standard.Render("FadedTool"));
 					Console.WriteLine("Welcome to FadedTool v." + toolVers.ToString()+" Created by Founder");
 					Console.WriteLine("Supported Minecraft Version: "+ supportsVersionsList);
 					
@@ -104,6 +109,8 @@ namespace FadedTool
 					}
 					else
 					{
+						Console.WriteLine(
+						FiggleFonts.Rectangles.Render("ERROR"));
 						Console.WriteLine("Please choose an option listed");
 					}
 
@@ -130,11 +137,6 @@ namespace FadedTool
 					else if (chosenWritingMethod == "DeezNutz" || chosenWritingMethod == "Weather")
 					{
 						Console.WriteLine("Deez nuts");
-						Console.WriteLine("⠀⠀⠀⠀⠀⠀⠀⢀⡔⠋⢉⠩⡉⠛⠛⠛⠉⣉⣉⠒⠒⡦⣄⠀⠀⠀");
-						Console.WriteLine("⠀⠀⠀⠀⠀⡰⠟⣀⢀⣒⠐⠛⡛⠳⢭⠆⠀⠤⡶⠿⠛⠂⠀⢈⠳⡀");
-						Console.WriteLine("⠀⠀⠀⠀⠈⢫⡊⠀⠹⡦⢼⣍⠓⢲⠥⢍⣁⣒⣊⣀⡬⢴⢿⠈⡜ ");
-						Console.WriteLine("⠀⠀⠀⠀⠀⠀⠀⠘⠦⡠⢀⠍⡒⠧⢄⣀⣁⣀⣏⣽⣹⠽⠊⠀⡇ ");
-						Console.WriteLine("⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠈⠑⠲⠤⠤⣀⣀⣀⣀⣀⠔⠁     ");
 						Thread.Sleep(2000);
 						Console.Clear();
 					}
@@ -151,6 +153,7 @@ namespace FadedTool
 
                     if (isAuto)
                     {
+
 						Console.Write("Enter write speed: ");
 						writtenSpeed = Console.ReadLine();
 						if (writtenSpeed == null)writtenSpeedToInt = 1;
@@ -189,6 +192,8 @@ namespace FadedTool
 				}
 				catch
 				{
+					Console.WriteLine(
+					FiggleFonts.Rectangles.Render("ERROR"));
 					Console.WriteLine("Something Broke D:");
 					Console.ReadKey();
 				}
@@ -243,7 +248,8 @@ namespace FadedTool
 			void ExitApp()
             {
 				Console.Clear();
-				Console.WriteLine("Bye!");
+				Console.WriteLine(
+				FiggleFonts.Standard.Render("Bye!"));
 				Thread.Sleep(300);
 				Console.WriteLine("Exiting...");
 				Thread.Sleep(1000);
