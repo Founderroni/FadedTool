@@ -18,7 +18,7 @@ namespace FadedTool
 		{
 		}
 
-        static float toolVers = 1.3f;
+        static float toolVers = 1.4f;
         private static void Main(string[] args)
         {
 			Console.Title = "FadedTool V."+toolVers+" by Founder  -  Kow#1833";
