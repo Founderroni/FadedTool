@@ -63,13 +63,6 @@ namespace FadedTool
 			{
 				try
 				{
-
-					Console.WriteLine("___________           .___         .______________           .__   ");
-					Console.WriteLine("\_   _____/____     __| _/____   __| _/\__    ___/___   ____ |  |  ");
-					Console.WriteLine(" |    __) \__  \   / __ |/ __ \ / __ |   |    | /  _ \ /  _ \|  |  ");
-					Console.WriteLine(" |     \   / __ \_/ /_/ \  ___// /_/ |   |    |(  <_> |  <_> )  |__");
-					Console.WriteLine(" \___  /  (____  /\____ |\___  >____ |   |____| \____/ \____/|____/");
-					Console.WriteLine("     \/        \/      \/    \/     \/                             ");
 					Console.WriteLine("Welcome to FadedTool v." + toolVers.ToString()+" Created by Founder");
 					Console.WriteLine("Supported Minecraft Version: "+ supportsVersionsList);
 					
