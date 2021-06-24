@@ -21,7 +21,7 @@ namespace FadedTool
         static float toolVers = 1.5f;
         private static void Main(string[] args)
         {
-			Console.Title = "FadedTool V."+toolVers+" by Founder  -  Kow#1833";
+			Console.Title = "FadedTool v"+toolVers+" by Founder  -  Kow#1833";
 			Console.ForegroundColor = ConsoleColor.DarkMagenta;
 			Mem m = new Mem();
 			var funcs = new Functions();
@@ -151,6 +151,8 @@ namespace FadedTool
 					else
 					{
 						Console.Clear();
+						Console.WriteLine(
+						FiggleFonts.Rectangles.Render("ERROR"));
 						Console.Write("Please choose an option listed");
 						Thread.Sleep(4000);
 					}
