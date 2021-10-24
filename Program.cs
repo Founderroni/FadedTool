@@ -115,7 +115,7 @@ namespace FadedTool
 					}
 					else if (gameVersionSelected == "m" || gameVersionSelected == "manual")
 					{
-						gameVersionAddress = "040776C8,3F8,218,50,2F0,0";//1.17.10
+						gameVersionAddress = "041F32E8,0,20,0";//1.17.40
 						ChangeDidRandom();
 						Console.ReadKey();
 						return;
